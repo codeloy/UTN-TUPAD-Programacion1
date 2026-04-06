@@ -98,9 +98,7 @@ print(f"Lista actualizada {estudiantes}")"""
 #(el último pasa a ser el primero). 
 
 lista_siete = [3, 55, 32, 56, 104, 6, 18]
+lista_cambiada = [lista_siete[-1]] + lista_siete[:-1]
+print(lista_cambiada)
+    
 
-for i in lista_siete:
-    #print(lista_siete)
-    print(lista_siete.index(i)+1)
-    #print(i)
-    #print(lista_siete)
