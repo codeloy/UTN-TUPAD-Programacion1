@@ -106,7 +106,7 @@ print(lista_cambiada)"""
 #una semana. 
 #● Calcular el promedio de las mínimas y el de las máximas. 
 #● Mostrar en qué día se registró la mayor amplitud térmica.
-temp_semana = []
+"""temp_semana = []
 total_min = 0
 total_max = 0
 amplitud = 0
@@ -136,9 +136,38 @@ promedio_min = round(total_min/7, 2)
 promedio_max = round(total_max/7, 2)
 
 print(f"promedio temperaturas minimas {promedio_min}, promedio de las temperaturas altas {promedio_max}")
-print(f"La mayor amplitud termica es: {amplitud_max}, en el dia número: {max_amplitud_total} de la semana")
+print(f"La mayor amplitud termica es: {amplitud_max}, en el dia número: {max_amplitud_total} de la semana")"""
 
+#8) Crear una matriz con las notas de 5 estudiantes en 3 materias. 
+#● Mostrar el promedio de cada estudiante. 
+#● Mostrar el promedio de cada materia. 
+""""matriz = []
+total_uno = 0
+total_dos = 0
+total_tres = 0
 
-   
+for i in range(1, 6):
+    matriz.append([round(random()*10, 2), round(random()*10, 2), round(random()*10, 2)])
+print(matriz)   
+
+for i in range(len(matriz)):
+    nota_uno = matriz[i][0]   
+    nota_dos = matriz[i][1] 
+    nota_tres = matriz[i][2] 
+
+    total_uno += nota_uno
+    total_dos += nota_dos
+    total_tres += nota_tres
+
+    promedio_estudiante = round((nota_uno + nota_dos + nota_tres)/3, 2)
+    print(f"Nota promedio estudiante {i+1} es {promedio_estudiante}")
+
+promedio_uno = round(total_uno/5, 2)
+promedio_dos = round(total_dos/5, 2)
+promedio_tres = round(total_tres/5, 2)
+
+print(f"Promedio Materia 1: {promedio_uno}")
+print(f"Promedio Materia 2: {promedio_dos}")
+print(f"Promedio Materia 3: {promedio_tres}")"""
 
 
