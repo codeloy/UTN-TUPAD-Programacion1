@@ -170,4 +170,26 @@ print(f"Promedio Materia 1: {promedio_uno}")
 print(f"Promedio Materia 2: {promedio_dos}")
 print(f"Promedio Materia 3: {promedio_tres}")"""
 
+#9) Representar un tablero de Ta-Te-Ti como una lista de listas (3x3). 
+#● Inicializarlo con guiones "-" representando casillas vacías. 
+#● Permitir que dos jugadores ingresen posiciones (fila, columna) para colocar "X" o "O". 
+#● Mostrar el tablero después de cada jugada.
 
+ta_te_ti = []
+columna = 0
+
+for i in range(1, 4):
+    
+    ta_te_ti.append(["-", "-", "-"])
+
+for fila in ta_te_ti:
+    print(" ".join(fila))
+
+f_usuario1 = input("Ingresar fila 1, 2, 3: ")
+c_usuario1 = int(input("Ingresar columna 1, 2, 3: "))
+marca_usuario = input("Ingresa X o O: ")
+if f_usuario1 == 1 and c_usuario1 == 1:
+    ta_te_ti[0][0] = marca_usuario
+    for fila in ta_te_ti:
+        print(" ".join(fila))
+#print(ta_te_ti)
