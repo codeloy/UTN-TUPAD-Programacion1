@@ -181,7 +181,7 @@ print(f"Promedio Materia 3: {promedio_tres}")"""
 #matriz[1][2] = 60  # Modifica la segunda sublista (índice 1), tercer elemento (índice 2)
 #print(matriz) # Resultado: [[1, 2, 3], [4, 5, 60], [7, 8, 9]]
 
-ta_te_ti = []
+"""ta_te_ti = []
 contador = 0
 print("***Juego Tateti***")
 for i in range(1, 4):
@@ -235,4 +235,29 @@ while contador < 9:
     #Imprime el Tateti con la jugada
     for fila in ta_te_ti:
         print(" ".join(fila))
-print("¡Juego terminado! Gracias por jugar.")
+print("¡Juego terminado! Gracias por jugar.")"""
+
+#10) Una tienda registra las ventas de 4 productos durante 7 días, en una matriz de 4x7. 
+#● Mostrar el total vendido por cada producto. 
+#● Mostrar el día con mayores ventas totales. 
+#● Indicar cuál fue el producto más vendido en la semana.
+
+caja_registradora = []
+sum_producto1 = 0
+sum_producto2 = 0
+sum_producto3 = 0
+sum_producto4 = 0
+
+#Llenar la Matriz con productos
+for v in range(1, 8):
+    caja_registradora.append([round(random()*100, 2), round(random()*100, 2), round(random()*100, 2), round(random()*100, 2)])
+    print(caja_registradora)    
+
+#Suma de cada producto
+for i in range(len(caja_registradora)):
+    sum_producto1 += caja_registradora[i][0]
+    sum_producto2 += caja_registradora[i][1]
+    sum_producto3 += caja_registradora[i][2]
+    sum_producto4 += caja_registradora[i][3]
+
+print(f"Suma del 1er producto: {round(sum_producto1, 2)}, 2do producto: {round(sum_producto2, 2)}, 3er producto: {round(sum_producto3, 2)}, 4to producto: {round(sum_producto4, 2)}")
