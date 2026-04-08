@@ -243,21 +243,48 @@ print("¡Juego terminado! Gracias por jugar.")"""
 #● Indicar cuál fue el producto más vendido en la semana.
 
 caja_registradora = []
-sum_producto1 = 0
-sum_producto2 = 0
-sum_producto3 = 0
-sum_producto4 = 0
 
 #Llenar la Matriz con productos
 for v in range(1, 8):
     caja_registradora.append([round(random()*100, 2), round(random()*100, 2), round(random()*100, 2), round(random()*100, 2)])
-    print(caja_registradora)    
 
-#Suma de cada producto
-for i in range(len(caja_registradora)):
-    sum_producto1 += caja_registradora[i][0]
-    sum_producto2 += caja_registradora[i][1]
-    sum_producto3 += caja_registradora[i][2]
-    sum_producto4 += caja_registradora[i][3]
+for fila in caja_registradora:
+    print(fila)
 
-print(f"Suma del 1er producto: {round(sum_producto1, 2)}, 2do producto: {round(sum_producto2, 2)}, 3er producto: {round(sum_producto3, 2)}, 4to producto: {round(sum_producto4, 2)}")
+#Cada indice será la suma del total de cada producto
+suma_productos = [0, 0, 0, 0]
+
+#Iteracion que recorre cada indice de caja_registradora
+for f in caja_registradora:
+   #Recorre por cada vuelta los 4 productos de un indice de caja_registadora
+   for i in range(len(f)):
+       #Almacena cada producto en un indice(0, 1, 2, 3) y va sumando al agregar  
+       suma_productos[i] += f[i] #f son los 4 productos i es cada uno de ellos(indices 0, 1, 2, 3)
+
+#Sumo los 4 valores y los guardo en otra lista
+ventas_x_dia = []
+for x in caja_registradora:
+    ventas_x_dia.append(sum(x))
+    
+#Dia con mayores ventas
+mayor_venta = 0
+dia_venta_mayor = 0 #variable para identificar el día
+for i in range(len(ventas_x_dia)):
+    if ventas_x_dia[i] > mayor_venta:
+        mayor_venta = ventas_x_dia[i]
+        dia_venta_mayor = i + 1
+print(f"El día con mayores ventas es: {dia_venta_mayor} por un valor de: ${round(mayor_venta, 2)}")
+
+print("Total vendido de cada producto")
+for i in range(len(suma_productos)):
+    print(f"Producto {i+1}: ${round(suma_productos[i], 2)}")
+
+#El producto mas vendido de la semana
+prod_mas_vendido = 0
+num_prod_mas_vendido = 0 #variable para identificar el producto
+for i in range(len(suma_productos)):
+    if suma_productos[i] > prod_mas_vendido:
+        prod_mas_vendido = suma_productos[i]
+        num_prod_mas_vendido = i + 1
+
+print(f"El número del producto mas vendido de la semana es: {num_prod_mas_vendido} con un valor: ${prod_mas_vendido}")
