@@ -242,7 +242,7 @@ print("¡Juego terminado! Gracias por jugar.")"""
 #● Mostrar el día con mayores ventas totales. 
 #● Indicar cuál fue el producto más vendido en la semana.
 
-caja_registradora = []
+"""caja_registradora = []
 
 #Llenar la Matriz con productos
 for v in range(1, 8):
@@ -288,3 +288,21 @@ for i in range(len(suma_productos)):
         num_prod_mas_vendido = i + 1
 
 print(f"El número del producto mas vendido de la semana es: {num_prod_mas_vendido} con un valor: ${prod_mas_vendido}")
+"""
+
+# 11)Crear una lista con los nombres de 10 estudiantes. 
+#● Solicitar al usuario que ingrese un nombre a buscar. 
+#● Indicar si el nombre se encuentra en la lista. 
+#●  Mostrar la posición en la que aparece. 
+#● Si no se encuentra, informar que no está en la lista. 
+
+estudiantes = ["Juan", "Elias", "Manuela", "Eliana", "Ezequiel", "Laura", "Ignacio", "Elodin", "Dena", "Arliden"]
+estudiante = input("Estudiante a buscar: ").strip().title()
+existe = False
+for i in range(len(estudiantes)):
+    if estudiante == estudiantes[i]:
+        existe = True
+        print(f"El nombre se encuentra en la posición: {i}")
+        break
+if not existe:
+    print("No encontrado")
