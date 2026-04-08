@@ -296,7 +296,7 @@ print(f"El número del producto mas vendido de la semana es: {num_prod_mas_vendi
 #●  Mostrar la posición en la que aparece. 
 #● Si no se encuentra, informar que no está en la lista. 
 
-estudiantes = ["Juan", "Elias", "Manuela", "Eliana", "Ezequiel", "Laura", "Ignacio", "Elodin", "Dena", "Arliden"]
+"""estudiantes = ["Juan", "Elias", "Manuela", "Eliana", "Ezequiel", "Laura", "Ignacio", "Elodin", "Dena", "Arliden"]
 estudiante = input("Estudiante a buscar: ").strip().title()
 existe = False
 for i in range(len(estudiantes)):
@@ -305,4 +305,21 @@ for i in range(len(estudiantes)):
         print(f"El nombre se encuentra en la posición: {i}")
         break
 if not existe:
-    print("No encontrado")
+    print("No encontrado")"""
+
+# 12) Pedir al usuario que ingrese 8 números enteros y almacenarlos en una lista. 
+#● Mostrar la lista original. 
+#● Mostrar la lista ordenada de menor a mayor. 
+#● Mostrar la lista ordenada de mayor a menor. 
+#● Investigar el uso de sorted() y del parámetro reverse. 
+
+numeros_enteros = []
+#Guardar los 8 valores en la lista
+for i in range(8):
+    numeros_enteros.append(int(input(f"Ingrese el número {i+1} de 8: ")))
+
+print(f"Lista original: {numeros_enteros}")
+
+print(f"Lista ordenada: {sorted(numeros_enteros)}")
+
+print(f"Lista ordenada invertida: {sorted(numeros_enteros, reverse=True)}")
