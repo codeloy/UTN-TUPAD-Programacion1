@@ -175,21 +175,64 @@ print(f"Promedio Materia 3: {promedio_tres}")"""
 #● Permitir que dos jugadores ingresen posiciones (fila, columna) para colocar "X" o "O". 
 #● Mostrar el tablero después de cada jugada.
 
-ta_te_ti = []
-columna = 0
+#Ej mofificar valores Matriz
+## Ejemplo: cambiar el número 6 por 60
+#matriz = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+#matriz[1][2] = 60  # Modifica la segunda sublista (índice 1), tercer elemento (índice 2)
+#print(matriz) # Resultado: [[1, 2, 3], [4, 5, 60], [7, 8, 9]]
 
+ta_te_ti = []
+contador = 0
+print("***Juego Tateti***")
 for i in range(1, 4):
-    
     ta_te_ti.append(["-", "-", "-"])
 
 for fila in ta_te_ti:
     print(" ".join(fila))
 
-f_usuario1 = input("Ingresar fila 1, 2, 3: ")
-c_usuario1 = int(input("Ingresar columna 1, 2, 3: "))
-marca_usuario = input("Ingresa X o O: ")
-if f_usuario1 == 1 and c_usuario1 == 1:
-    ta_te_ti[0][0] = marca_usuario
+while contador < 9:
+    #Valida que sea número
+    f_usuario = input("Ingresar fila 1, 2, 3: ")
+    if not f_usuario.isdigit():
+        print("Solo puede ingresar números")
+        continue
+    #valida numero entre 1 y 3
+    f_usuario = int(f_usuario)
+    if f_usuario < 1 or f_usuario > 3:
+        print("Fuera del tablero")
+        continue
+
+    #Valida que sea número
+    c_usuario = input("Ingresar columna 1, 2, 3: ")
+    if not c_usuario.isdigit():
+        print("Solo puede ingresar números")
+        continue
+    #valida numero entre 1 y 3
+    c_usuario = int(c_usuario)
+    if c_usuario < 1 or c_usuario > 3:
+        print("Fuera del tablero")
+        continue
+
+    #Se resta 1 para coincidir con el indice
+    f_usuario -= 1 
+    c_usuario -= 1 
+
+    #Comprobar si la posición esta libre
+    if ta_te_ti[f_usuario][c_usuario] != "-":
+        print("Posición ocupada")
+        continue
+
+    marca_usuario = input("Ingresa X o O: ").strip().upper()
+    #Validar que se ingrese X o O
+    if marca_usuario != "X" and marca_usuario != "O" :
+        print("Elección icorrecta, ingrese X o O")
+        continue
+    
+    #Darle a la eleccion del jugador la posición de la Matriz
+    ta_te_ti[f_usuario][c_usuario] = marca_usuario 
+    contador += 1
+
+    #Imprime el Tateti con la jugada
     for fila in ta_te_ti:
         print(" ".join(fila))
-#print(ta_te_ti)
+print("¡Juego terminado! Gracias por jugar.")
