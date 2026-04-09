@@ -63,5 +63,22 @@ while True:
             herramientas.append(tool)
 
     elif opcion == 2:
-        for herramienta in herramientas:
-            
+        existencias.clear()
+        for h in herramientas:
+            while True:
+                #Muestra de que producto ingresar unidades
+                cantidad_str = input(f"Ingrese unidades para {h}: ")
+                #Valida si es número
+                if not cantidad_str.isdigit():
+                    print("Error: Ingrese números")
+                    continue
+                cantidad = int(cantidad_str)
+                if cantidad < 0:
+                    print("Error: Ingrese un número mayor o igual a 0")
+                    continue
+                break
+            #Al pasar la validaciones agrega las unidades a la lista existencia
+            existencias.append(cantidad)
+
+    elif opcion == 3:
+        
