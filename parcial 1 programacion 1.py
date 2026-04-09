@@ -46,12 +46,22 @@ while True:
         for i in range(num_tools):
             while True:
                 tool = input("Ingrese las Herramientas: ").strip().capitalize()
-                
+                #Valida que tool no sea ""
+                if tool == "":
+                    print("Nombre vacio")
+                    continue
+                #Valida que sea una palabra
                 if not tool.isalpha():
                     print("Nombre Incorrecto")
                     continue
+                #valida que no se repitan las herramientas
                 if tool in herramientas:
                     print("Herramienta repetida")
                     continue
-                break
+                break #Si todo ok, Sale del while
+            #Agrega el valor de tool a herramientas
             herramientas.append(tool)
+
+    elif opcion == 2:
+        for herramienta in herramientas:
+            
