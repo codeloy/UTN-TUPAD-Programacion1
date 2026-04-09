@@ -81,4 +81,12 @@ while True:
             existencias.append(cantidad)
 
     elif opcion == 3:
-        
+        if len(herramientas) == 0:
+            print("No hay ninguna herramienta cargada")
+        elif len(existencias) == 0:
+            print("No hay ninguna cantidad cargada")
+        else:
+            for i in range(len(herramientas)):
+                print(f"{existencias[i]} unidades del producto: {herramientas[i]}")
+
+    
