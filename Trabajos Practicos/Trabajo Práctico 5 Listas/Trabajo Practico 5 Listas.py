@@ -2,7 +2,7 @@ from random import*
 
 #1) Crear una lista con las notas de 10 estudiantes. 
 
-""""promedio = 0
+promedio = 0
 notas_estudiantes = [8, 6.5, 4, 9.8, 7.6, 4.3, 3, 6, 7.2, 10]
 #Recorrer la lista y sumar elementos a promedio
 for nota in notas_estudiantes:
@@ -14,11 +14,11 @@ nota_maxima = max(notas_estudiantes)
 nota_minima = min(notas_estudiantes)
 print(f"El promedio de la Lista: {notas_estudiantes} es: {promedio}")
 print(f"Nota mas alta: {nota_maxima} | Nota mas baja: {nota_minima}")
-"""
+
 #2) Pedir al usuario que cargue 5 productos en una lista. 
 
 #Declarar lista vacía
-""""productos = []
+productos = []
 #Usuario ingresa los productos a la lista 
 for i in range(1, 6):
     producto = input("Ingresar producto: ").strip().capitalize()
@@ -43,17 +43,18 @@ if eliminar in productos:
     print(f"Ha eliminado {eliminar}")
     print(f"Lista actualizada {productos} sin {eliminar}")
 else:
-     print("El producto que desea eliminar no se encuentra en la lista")"""
+     print("El producto que desea eliminar no se encuentra en la lista")
 
 #3)Generar una lista con 15 números enteros al azar entre 1 y 100.  
 
-"""lista_azar = []
+lista_azar = []
+#Agrega números random enteros a la lista
 for num in range(1, 16):
     lista_azar.append(randint(0, 100))
-
+#Declarar listas vacias
 lista_pares = []
 lista_impares = []
-
+#Comprueba si es par o impar
 for i in lista_azar:
     if i % 2 == 0:
         lista_pares.append(i)
@@ -61,74 +62,70 @@ for i in lista_azar:
         lista_impares.append(i)
 print(f"La lista de números al azar es: {lista_azar}")
 print(f"La lista de números pares es: {lista_pares} con una cantidad de {len(lista_pares)} elementos")
-print(f"La lista de números impares es: {lista_impares} con una cantidad de {len(lista_impares)} elementos")"""
+print(f"La lista de números impares es: {lista_impares} con una cantidad de {len(lista_impares)} elementos")
 
-#4) Dada una lista con valores repetidos: 
-#● Crear una nueva lista sin elementos repetidos. 
-#● Mostrar el resultado.
-"""datos = [1, 3, 5, 3, 7, 1, 9, 5, 3]
+#4) Sacar valores repetidos: 
+
+datos = [1, 3, 5, 3, 7, 1, 9, 5, 3]
 
 no_repetidos = []
- 
+#Si no esta repetido lo agrega a la nueva lista
 for num in datos:
     if num not in no_repetidos:
+       #Agrega num a la lista
        no_repetidos.append(num) 
-print(no_repetidos)"""
+print(no_repetidos)
 
-#5)Crear una lista con los nombres de 8 estudiantes presentes en clase. 
-#● Preguntar al usuario si quiere agregar un nuevo estudiante o eliminar uno existente. 
-#● Mostrar la lista final actualizada. 
-
-""""estudiantes = ["Juan", "Carla", "Ezequiel", "Laura", "Esteban",
+#5)Lista con los nombres de 8 estudiantes presentes en clase. 
+ 
+estudiantes = ["Juan", "Carla", "Ezequiel", "Laura", "Esteban",
                 "Florencia", "Oscar", "Vanesa"]
 print(f"Desea agregar un estudiante o borrar uno existente de estos:\n {estudiantes}")
 
 agregar = input("Agregar un estudiante 'S/N' ").strip().lower()
-
+#Si elige "s" introduce el nuevo estudiante
 if agregar == "s":
     estudiante = input("Nombre del estudiante: ").title()
     estudiantes.append(estudiante)
-
+#Elegir si borrar o no con S/N
 eleccion = input("Borrar estudiante 'S/N' ").strip().lower()
 if eleccion == "s":
     borrar = input("Nombre estudiante a borrar: ").strip().title()
+    #Comprobar si el estudiante esta en la lista
     while borrar not in estudiantes:
         borrar = input("Vuelva a introducir el nombre: ").strip().title()
     estudiantes.remove(borrar)
-print(f"Estudiante {borrar} eliminado con éxito")
-print(f"Lista actualizada {estudiantes}")"""
+    print(f"Estudiante {borrar} eliminado con éxito")
+print(f"Lista actualizada {estudiantes}")
 
-#6)Dada una lista con 7 números, rotar todos los elementos una posición hacia la derecha 
-#(el último pasa a ser el primero). 
-
-"""lista_siete = [3, 55, 32, 56, 104, 6, 18]
+#6)Rotar todos los elementos una posición hacia la derecha 
+ 
+lista_siete = [3, 55, 32, 56, 104, 6, 18]
+#con Slicing se modifica la posición 
 lista_cambiada = [lista_siete[-1]] + lista_siete[:-1]
-print(lista_cambiada)"""
+print(lista_cambiada)
     
+#9)matriz con las temperaturas mínimas y máximas de una semana. 
 
-#9)Crear una matriz (lista anidada) de 7x2 con las temperaturas mínimas y máximas de 
-#una semana. 
-#● Calcular el promedio de las mínimas y el de las máximas. 
-#● Mostrar en qué día se registró la mayor amplitud térmica.
-""""temp_semana = []
+temp_semana = []
 total_min = 0
 total_max = 0
 amplitud = 0
 amplitud_max = 0
-
+#Simula la carga de datos
 for i in range(1, 8):
     temp_semana.append([randrange(1, 15, 1), randrange(15, 28, 1)])
 print(temp_semana)
-
+#Guarda valores min y max a dos variables
 for i in range(len(temp_semana)):
-    temp_min = temp_semana[i][0] # i es el indice de iteración y 0 o 1 el  
-    temp_max = temp_semana[i][1] # indice de la lista de 2 elementos
-
+    temp_min = temp_semana[i][0]   
+    temp_max = temp_semana[i][1] 
+    #Acumuladores para calcular promedios
     total_min += temp_min
     total_max += temp_max
-
+    #Diferencias térmicas
     amplitud = temp_max - temp_min
-
+    #Busqueda del valor mayor. Identifica el dia
     if amplitud > amplitud_max:
         amplitud_max = amplitud
         max_amplitud_total = i + 1
@@ -136,29 +133,29 @@ for i in range(len(temp_semana)):
 for i in range(len(temp_semana)):
     print(f"El día número: {i+1}, temperatura minima: {temp_semana[i][0]} temperatura maxima de: {temp_semana[i][1]}")
 
-promedio_min = round(total_min/7, 2)
-promedio_max = round(total_max/7, 2)
+promedio_min = round(total_min/len(temp_semana), 2)
+promedio_max = round(total_max/len(temp_semana), 2)
 
 print(f"promedio temperaturas minimas {promedio_min}, promedio de las temperaturas altas {promedio_max}")
-print(f"La mayor amplitud termica es: {amplitud_max}, en el dia número: {max_amplitud_total} de la semana")"""
+print(f"La mayor amplitud termica es: {amplitud_max}, en el dia número: {max_amplitud_total} de la semana")
 
 #8) Crear una matriz con las notas de 5 estudiantes en 3 materias. 
-#● Mostrar el promedio de cada estudiante. 
-#● Mostrar el promedio de cada materia. 
-""""matriz = []
+
+#Definición de variables
+matriz = []
 total_uno = 0
 total_dos = 0
 total_tres = 0
-
+#Simula la introducción de la matriz
 for i in range(1, 6):
     matriz.append([round(random()*10, 2), round(random()*10, 2), round(random()*10, 2)])
 print(matriz)   
-
+#Acumular los valores de cada materia
 for i in range(len(matriz)):
     nota_uno = matriz[i][0]   
     nota_dos = matriz[i][1] 
     nota_tres = matriz[i][2] 
-
+    #suma los valores para calcular promedio
     total_uno += nota_uno
     total_dos += nota_dos
     total_tres += nota_tres
@@ -166,31 +163,26 @@ for i in range(len(matriz)):
     promedio_estudiante = round((nota_uno + nota_dos + nota_tres)/3, 2)
     print(f"Nota promedio estudiante {i+1} es {promedio_estudiante}")
 
-promedio_uno = round(total_uno/5, 2)
-promedio_dos = round(total_dos/5, 2)
-promedio_tres = round(total_tres/5, 2)
-
+#Largo de la matriz para el calculo
+cant_estudiantes = len(matriz)
+#Promedio estudiante
+promedio_uno = round(total_uno/cant_estudiantes, 2)
+promedio_dos = round(total_dos/cant_estudiantes, 2)
+promedio_tres = round(total_tres/cant_estudiantes, 2)
+#Promedio por materia
 print(f"Promedio Materia 1: {promedio_uno}")
 print(f"Promedio Materia 2: {promedio_dos}")
-print(f"Promedio Materia 3: {promedio_tres}")"""
+print(f"Promedio Materia 3: {promedio_tres}")
 
-#9) Representar un tablero de Ta-Te-Ti como una lista de listas (3x3). 
-#● Inicializarlo con guiones "-" representando casillas vacías. 
-#● Permitir que dos jugadores ingresen posiciones (fila, columna) para colocar "X" o "O". 
-#● Mostrar el tablero después de cada jugada.
-
-#Ej mofificar valores Matriz
-## Ejemplo: cambiar el número 6 por 60
-#matriz = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-#matriz[1][2] = 60  # Modifica la segunda sublista (índice 1), tercer elemento (índice 2)
-#print(matriz) # Resultado: [[1, 2, 3], [4, 5, 60], [7, 8, 9]]
-
-"""ta_te_ti = []
+#9) Juego de Ta-Te-Ti como una lista de listas (3x3). 
+#definir variable y lista
+ta_te_ti = []
 contador = 0
 print("***Juego Tateti***")
+#Crea el tablero
 for i in range(1, 4):
     ta_te_ti.append(["-", "-", "-"])
-
+#muestra el tablero sin ""
 for fila in ta_te_ti:
     print(" ".join(fila))
 
@@ -239,14 +231,11 @@ while contador < 9:
     #Imprime el Tateti con la jugada
     for fila in ta_te_ti:
         print(" ".join(fila))
-print("¡Juego terminado! Gracias por jugar.")"""
+print("¡Juego terminado! Gracias por jugar.")
 
-#10) Una tienda registra las ventas de 4 productos durante 7 días, en una matriz de 4x7. 
-#● Mostrar el total vendido por cada producto. 
-#● Mostrar el día con mayores ventas totales. 
-#● Indicar cuál fue el producto más vendido en la semana.
-
-"""caja_registradora = []
+#10) Registro de ventas de una tienda. 
+#definir lista
+caja_registradora = []
 
 #Llenar la Matriz con productos
 for v in range(1, 8):
@@ -292,24 +281,23 @@ for i in range(len(suma_productos)):
         num_prod_mas_vendido = i + 1
 
 print(f"El número del producto mas vendido de la semana es: {num_prod_mas_vendido} con un valor: ${prod_mas_vendido}")
-"""
 
-# 11)Crear una lista con los nombres de 10 estudiantes. 
-#● Solicitar al usuario que ingrese un nombre a buscar. 
-#● Indicar si el nombre se encuentra en la lista. 
-#●  Mostrar la posición en la que aparece. 
-#● Si no se encuentra, informar que no está en la lista. 
+# 11) Busqueda de nombres en 10 estudiantes. 
 
-"""estudiantes = ["Juan", "Elias", "Manuela", "Eliana", "Ezequiel", "Laura", "Ignacio", "Elodin", "Dena", "Arliden"]
+#definir lista
+estudiantes = ["Juan", "Elias", "Manuela", "Eliana", "Ezequiel", "Laura", "Ignacio", "Elodin", "Dena", "Arliden"]
 estudiante = input("Estudiante a buscar: ").strip().title()
+#Definie bandera
 existe = False
+#Recorrer para buscar
 for i in range(len(estudiantes)):
     if estudiante == estudiantes[i]:
+        #Si encuentra cambia la bandera
         existe = True
         print(f"El nombre se encuentra en la posición: {i}")
         break
 if not existe:
-    print("No encontrado")"""
+    print("No encontrado")
 
 # 12) Pedir al usuario que ingrese 8 números enteros y almacenarlos en una lista. 
 #● Mostrar la lista original. 
@@ -317,7 +305,7 @@ if not existe:
 #● Mostrar la lista ordenada de mayor a menor. 
 #● Investigar el uso de sorted() y del parámetro reverse. 
 
-"""numeros_enteros = []
+numeros_enteros = []
 #Guardar los 8 valores en la lista
 for i in range(8):
     numeros_enteros.append(int(input(f"Ingrese el número {i+1} de 8: ")))
@@ -326,11 +314,11 @@ print(f"Lista original: {numeros_enteros}")
 
 print(f"Lista ordenada: {sorted(numeros_enteros)}")
 
-print(f"Lista ordenada invertida: {sorted(numeros_enteros, reverse=True)}")"""
+print(f"Lista ordenada invertida: {sorted(numeros_enteros, reverse=True)}")
 
 # 13) Puntajes de un videojuego: 
 
-"""puntajes = [450, 1200, 875, 990, 300, 1500, 640]
+puntajes = [450, 1200, 875, 990, 300, 1500, 640]
 
 #uso de metodos nativos(min, max, sorted)
 #puntaje mayor y menor
@@ -343,4 +331,4 @@ pos_ranking = ranking.index(990) + 1
 
 print(f"Puntaje más alto: {mas_alto} | Puntaje más bajo: {mas_bajo}")
 print(f"Ranking de mayor a menor: {ranking}")
-print(f"El puntaje 990 se encuentra en el puesto: {pos_ranking} del ranking")"""
+print(f"El puntaje 990 se encuentra en el puesto: {pos_ranking} del ranking")
