@@ -89,4 +89,23 @@ while True:
             for i in range(len(herramientas)):
                 print(f"{existencias[i]} unidades del producto: {herramientas[i]}")
 
-    
+    elif opcion == 4:
+        while True:
+                search_prod = input("Ingrese las Herramientas: ").strip().capitalize()
+                #Valida que tool no sea ""
+                if search_prod == "":
+                    print("Nombre vacio")
+                    continue
+                #Valida que sea una palabra
+                if not search_prod.isalpha():
+                    print("Nombre Incorrecto")
+                    continue
+                #valida que no se repitan las herramientas
+                if search_prod in herramientas:
+                    repetido = herramientas.count(search_prod)
+                    print(f"Productos repetido: {repetido}")
+                else:
+                    print(f"No hay repetidos de {repetido}")
+                    continue
+                break
+                
