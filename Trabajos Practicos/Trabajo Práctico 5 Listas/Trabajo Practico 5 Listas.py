@@ -1,37 +1,43 @@
 from random import*
 
 #1) Crear una lista con las notas de 10 estudiantes. 
-#● Mostrar la lista completa. 
-#● Calcular y mostrar el promedio. 
-#● Indicar la nota más alta y la más baja.
-"""promedio = 0
-notas_estudiantes = [8, 6.5, 4, 9.8, 7.6, 4.3, 3]
+
+""""promedio = 0
+notas_estudiantes = [8, 6.5, 4, 9.8, 7.6, 4.3, 3, 6, 7.2, 10]
+#Recorrer la lista y sumar elementos a promedio
 for nota in notas_estudiantes:
     promedio += nota
-promedio = round(promedio)/2
+#La suma en promedio se divide la cantidad
+promedio = round(promedio / len(notas_estudiantes), 2)
+#Valores minimos y maximos
 nota_maxima = max(notas_estudiantes)
 nota_minima = min(notas_estudiantes)
-print(f"El promedio de la Lista: {notas_estudiantes} es: {promedio}, la nota mas alta es: {nota_maxima} y la nota mas baja es: {nota_minima}") """
-
+print(f"El promedio de la Lista: {notas_estudiantes} es: {promedio}")
+print(f"Nota mas alta: {nota_maxima} | Nota mas baja: {nota_minima}")
+"""
 #2) Pedir al usuario que cargue 5 productos en una lista. 
-#● Mostrar la lista ordenada alfabéticamente. Investigue el uso del método sorted(). 
-#● Preguntar al usuario qué producto desea eliminar y actualizar la lista. 
 
-"""productos = []
+#Declarar lista vacía
+""""productos = []
+#Usuario ingresa los productos a la lista 
 for i in range(1, 6):
-    producto = input("Ingresar producto: ").strip()
+    producto = input("Ingresar producto: ").strip().capitalize()
+    #comprobar que sean letras
     while not producto.isalpha():
         print("Error: Valor no valido")
-        producto = input("Ingresar producto: ").strip()
+        producto = input("Ingresar producto: ").strip().capitalize()
     productos.append(producto)
     print(productos)
 print(sorted(productos))
 
+#Eliminar producto
 print("Que producto de la lista desea eliminar?")
-eliminar = input("Producto a eliminar: ")
+eliminar = input("Producto a eliminar: ").strip().capitalize()
+#Validacion
 while not eliminar.isalpha():
         print("Error: Valor no valido")
-        eliminar = input("Ingresar producto a eliminar: ").strip()
+        eliminar = input("Ingresar producto a eliminar: ").strip().capitalize()
+#Comprobar y si está, eliminarlo
 if eliminar in productos:
     productos.remove(eliminar)
     print(f"Ha eliminado {eliminar}")
@@ -39,9 +45,7 @@ if eliminar in productos:
 else:
      print("El producto que desea eliminar no se encuentra en la lista")"""
 
-#3)Generar una lista con 15 números enteros al azar entre 1 y 100. 
-#● Crear una lista con los pares y otra con los impares. 
-#● Mostrar cuántos números tiene cada lista. 
+#3)Generar una lista con 15 números enteros al azar entre 1 y 100.  
 
 """lista_azar = []
 for num in range(1, 16):
@@ -75,7 +79,7 @@ print(no_repetidos)"""
 #● Preguntar al usuario si quiere agregar un nuevo estudiante o eliminar uno existente. 
 #● Mostrar la lista final actualizada. 
 
-"""estudiantes = ["Juan", "Carla", "Ezequiel", "Laura", "Esteban",
+""""estudiantes = ["Juan", "Carla", "Ezequiel", "Laura", "Esteban",
                 "Florencia", "Oscar", "Vanesa"]
 print(f"Desea agregar un estudiante o borrar uno existente de estos:\n {estudiantes}")
 
@@ -106,7 +110,7 @@ print(lista_cambiada)"""
 #una semana. 
 #● Calcular el promedio de las mínimas y el de las máximas. 
 #● Mostrar en qué día se registró la mayor amplitud térmica.
-"""temp_semana = []
+""""temp_semana = []
 total_min = 0
 total_max = 0
 amplitud = 0
@@ -129,7 +133,7 @@ for i in range(len(temp_semana)):
         amplitud_max = amplitud
         max_amplitud_total = i + 1
 
-for i in range(0, 7):
+for i in range(len(temp_semana)):
     print(f"El día número: {i+1}, temperatura minima: {temp_semana[i][0]} temperatura maxima de: {temp_semana[i][1]}")
 
 promedio_min = round(total_min/7, 2)
@@ -313,7 +317,7 @@ if not existe:
 #● Mostrar la lista ordenada de mayor a menor. 
 #● Investigar el uso de sorted() y del parámetro reverse. 
 
-numeros_enteros = []
+"""numeros_enteros = []
 #Guardar los 8 valores en la lista
 for i in range(8):
     numeros_enteros.append(int(input(f"Ingrese el número {i+1} de 8: ")))
@@ -322,4 +326,21 @@ print(f"Lista original: {numeros_enteros}")
 
 print(f"Lista ordenada: {sorted(numeros_enteros)}")
 
-print(f"Lista ordenada invertida: {sorted(numeros_enteros, reverse=True)}")
+print(f"Lista ordenada invertida: {sorted(numeros_enteros, reverse=True)}")"""
+
+# 13) Puntajes de un videojuego: 
+
+"""puntajes = [450, 1200, 875, 990, 300, 1500, 640]
+
+#uso de metodos nativos(min, max, sorted)
+#puntaje mayor y menor
+mas_alto = max(puntajes)
+mas_bajo = min(puntajes)
+#Crear ranking
+ranking = sorted(puntajes, reverse= True)
+#Localizar indice con index()
+pos_ranking = ranking.index(990) + 1
+
+print(f"Puntaje más alto: {mas_alto} | Puntaje más bajo: {mas_bajo}")
+print(f"Ranking de mayor a menor: {ranking}")
+print(f"El puntaje 990 se encuentra en el puesto: {pos_ranking} del ranking")"""
