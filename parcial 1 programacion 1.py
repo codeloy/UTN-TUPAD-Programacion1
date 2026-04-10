@@ -102,6 +102,7 @@ while True:
         #Si hay productos o unidades, permite la busqueda
         else:
             while True:
+                    #Variable bandera
                     encontrado = False
                     search_prod = input("Ingrese las Herramienta: ").strip().capitalize()
                     #Valida que el producto no sea ""
@@ -128,4 +129,18 @@ while True:
                         print("El producto no se encuentra en stock")
                         continue
                     break
-    
+    elif opcion == 5:
+        #variable bandera
+        hay_agotado = False
+        #Recorre para buscar si hay 0 unidades
+        for i in range(len(existencias)):
+            if existencias[i] == 0:
+                agotado = existencias[i]
+                prod_agotado = herramientas[i]
+                #Si hay alguno con 0 cambia la bandera
+                hay_agotado = True
+                print(f"Producto: {prod_agotado} con {agotado} unidades")
+                #si la bandera no cambia, no hay 0
+        if hay_agotado == False:
+            print("No hay productos agotados")
+            
