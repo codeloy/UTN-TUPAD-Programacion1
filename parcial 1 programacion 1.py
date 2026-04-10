@@ -81,31 +81,51 @@ while True:
             existencias.append(cantidad)
 
     elif opcion == 3:
+        #Avisa si no hay productos cargados
         if len(herramientas) == 0:
             print("No hay ninguna herramienta cargada")
+        #Avisa si no hay unidades cargadas
         elif len(existencias) == 0:
             print("No hay ninguna cantidad cargada")
+        #Ya comprobado, Muestra el stock: productos y unidades
         else:
             for i in range(len(herramientas)):
                 print(f"{existencias[i]} unidades del producto: {herramientas[i]}")
 
     elif opcion == 4:
-        while True:
-                search_prod = input("Ingrese las Herramientas: ").strip().capitalize()
-                #Valida que tool no sea ""
-                if search_prod == "":
-                    print("Nombre vacio")
-                    continue
-                #Valida que sea una palabra
-                if not search_prod.isalpha():
-                    print("Nombre Incorrecto")
-                    continue
-                #valida que no se repitan las herramientas
-                if search_prod in herramientas:
-                    repetido = herramientas.count(search_prod)
-                    print(f"Productos repetido: {repetido}")
-                else:
-                    print(f"No hay repetidos de {repetido}")
-                    continue
-                break
-                
+        #Avisa si no hay productos cargados
+        if len(herramientas) == 0:
+            print("No hay productos cargados")
+        #Avisa si no hay unidades cargadas
+        elif len(existencias) == 0:
+            print("No hay unidades cargadas")
+        #Si hay productos o unidades, permite la busqueda
+        else:
+            while True:
+                    encontrado = False
+                    search_prod = input("Ingrese las Herramienta: ").strip().capitalize()
+                    #Valida que el producto no sea ""
+                    if search_prod == "":
+                        print("Nombre vacio")
+                        continue
+                    #Valida que sea una palabra
+                    if not search_prod.isalpha():
+                        print("Nombre Incorrecto")
+                        continue
+                    #Recorre los indices de Herramientas
+                    for i in range(len(herramientas)):
+                        if herramientas[i] == search_prod:
+                            #Si encuentra lo agrega 
+                            identificado = herramientas[i]
+                            cantidad = existencias[i]
+                            #Cambia el valor 
+                            encontrado = True
+                            #Muestra el producto y las unidades
+                            print(f"Producto buscado: {identificado}, con {cantidad} unidades")
+                            break 
+                    #El valor False confirma que no hay valores
+                    if encontrado == False:
+                        print("El producto no se encuentra en stock")
+                        continue
+                    break
+    
