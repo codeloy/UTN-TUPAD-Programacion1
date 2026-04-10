@@ -129,6 +129,7 @@ while True:
                         print("El producto no se encuentra en stock")
                         continue
                     break
+            
     elif opcion == 5:
         #variable bandera
         hay_agotado = False
@@ -143,4 +144,37 @@ while True:
                 #si la bandera no cambia, no hay 0
         if hay_agotado == False:
             print("No hay productos agotados")
-            
+
+    elif opcion == 6:
+
+        add_producto = input("Ingrese el producto a agregar: ").strip().capitalize()
+        #Valida que tool no sea ""
+        if add_producto == "":
+            print("Nombre vacio")
+            continue
+        #Valida que sea una palabra
+        if not add_producto.isalpha():
+            print("El nombre solo debe contener letras")
+            continue
+        #valida que no se repitan las herramientas
+        if add_producto in herramientas:
+            print("El producto ya existe")
+            continue
+        
+        #Muestra de que producto ingresar unidades
+        add_unidades_str = input(f"Ingrese unidades para {add_producto}: ")
+        #Valida si es número
+        if not add_unidades_str.isdigit():
+            print("Error: Ingrese números")
+            continue
+        add_unidades = int(add_unidades_str)
+        #Comprueba si es menor o igual a 0
+        if add_unidades < 0:
+            print("Error: Ingrese un número mayor o igual a 0")
+            continue
+
+        #Si pasan las validaciones, se agregan a las listas
+        herramientas.append(add_producto)
+        existencias.append(add_unidades)
+
+    
