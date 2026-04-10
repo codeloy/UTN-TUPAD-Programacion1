@@ -104,7 +104,7 @@ while True:
             while True:
                     #Variable bandera
                     encontrado = False
-                    search_prod = input("Ingrese las Herramienta: ").strip().capitalize()
+                    search_prod = input("Ingrese la Herramienta: ").strip().capitalize()
                     #Valida que el producto no sea ""
                     if search_prod == "":
                         print("Nombre vacio")
@@ -177,4 +177,52 @@ while True:
         herramientas.append(add_producto)
         existencias.append(add_unidades)
 
-    
+    #Impedir ventas que superen el stock disponible (no se permiten saldos negativos)
+    elif opcion == 7:
+        while True:
+                #Variable bandera
+                find_it = False
+                vender_producto = input("Ingrese la Herramienta: ").strip().capitalize()
+                #Valida que el producto no sea ""
+                if vender_producto == "":
+                    print("Nombre vacio")
+                    continue
+                #Valida que sea una palabra
+                if not vender_producto.isalpha():
+                    print("El nombre solo debe contener letras")
+                    continue
+                #Recorre los indices de Herramientas
+                for i in range(len(herramientas)):
+                    if herramientas[i] == vender_producto:
+                        #Si encuentra lo agrega 
+                        #prod_en_herramientas = herramientas[i]
+                        #unid_en_existencias = existencias[i]
+                        #Cambia el valor 
+                        find_it = True
+                        #Muestra el producto y las unidades en stock
+                        print(f"Producto buscado: {herramientas[i]}, con {existencias[i]} unidades")
+                        break
+                if find_it == False:
+                    print("El producto no existe")
+                    continue 
+
+                #Muestra de que producto ingresar unidades
+                venta_unid_str = input(f"Ingrese unidades para {herramientas[i]}: ")
+                #Valida si es número
+                if not venta_unid_str.isdigit():
+                    print("Error: Ingrese números")
+                    continue
+                venta_unid = int(venta_unid_str)
+                if venta_unid < 0:
+                    print("Error: Ingrese un número mayor o igual a 0")
+                    continue
+                #break
+                
+                #Actualiza stock
+                if venta_unid > existencias[i]:
+                    print(f"No hay suficientes unidades a la venta")
+                    continue
+                else:
+                    nuevo_stock = existencias[i] - venta_unid
+                    existencias[i] = nuevo_stock
+                break
