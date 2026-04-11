@@ -6,8 +6,7 @@ herramientas = []
 existencias = []
 opcion = 0
 #1)preguntar al usuario la cantidad de herramientas a cargar
-#2)Carga de Existencias: Ingresar la cantidad de unidades para cada herramienta 
-#registrada previamente, respetando el orden de ingreso
+
 
 while True:
     print("Menu principal")
@@ -180,8 +179,22 @@ while True:
     #Impedir ventas que superen el stock disponible (no se permiten saldos negativos)
     elif opcion == 7:
         while True:
+            while True:
+                sell_buy_str = input("Elija 1 para Vender y 2 para Comprar: ")
+                if not sell_buy_str.isdigit():
+                    print("Error: Introduce solo 1 o 2")
+                    continue
+                
+                sell_buy = int(sell_buy_str)
+
+                if sell_buy != 1 and sell_buy != 2:
+                    print("Error: Introduce solo 1 o 2")
+                    continue
+                break
+
+            if sell_buy == 1:
                 #Variable bandera
-                find_it = False
+                find_product = False
                 vender_producto = input("Ingrese la Herramienta: ").strip().capitalize()
                 #Valida que el producto no sea ""
                 if vender_producto == "":
@@ -198,11 +211,11 @@ while True:
                         #prod_en_herramientas = herramientas[i]
                         #unid_en_existencias = existencias[i]
                         #Cambia el valor 
-                        find_it = True
+                        find_product = True
                         #Muestra el producto y las unidades en stock
                         print(f"Producto buscado: {herramientas[i]}, con {existencias[i]} unidades")
                         break
-                if find_it == False:
+                if find_product == False:
                     print("El producto no existe")
                     continue 
 
@@ -217,7 +230,7 @@ while True:
                     print("Error: Ingrese un número mayor o igual a 0")
                     continue
                 #break
-                
+        
                 #Actualiza stock
                 if venta_unid > existencias[i]:
                     print(f"No hay suficientes unidades a la venta")
@@ -226,3 +239,43 @@ while True:
                     nuevo_stock = existencias[i] - venta_unid
                     existencias[i] = nuevo_stock
                 break
+
+            else:
+                find_it = False
+                comprar_producto = input("Herramienta a comprar: ").strip().capitalize()
+                #Valida que el producto no sea ""
+                if comprar_producto == "":
+                    print("Nombre vacio")
+                    continue
+                #Valida que sea una palabra
+                if not comprar_producto.isalpha():
+                    print("El nombre solo debe contener letras")
+                    continue
+
+                for i in range(len(herramientas)):
+                    if herramientas[i] == comprar_producto:
+                        #Cambia el valor 
+                        find_it = True
+                        #Muestra el producto y las unidades en stock
+                        print(f"Producto buscado: {herramientas[i]}, con {existencias[i]} unidades")
+                        break
+                if find_it == False:
+                    print("El producto no existe")
+                    continue
+
+                #Muestra de que producto ingresar unidades
+                compra_unid_str = input(f"Ingrese c/u para {herramientas[i]}: ")
+                #Valida si es número
+                if not compra_unid_str.isdigit():
+                    print("Error: Ingrese números")
+                    continue
+                compra_unid = int(compra_unid_str)
+                if compra_unid < 0:
+                    print("Error: Ingrese un número mayor o igual a 0")
+                    continue 
+
+                #Actualiza stock
+                new_stock = existencias[i] + compra_unid
+                existencias[i] = new_stock
+            break
+                
