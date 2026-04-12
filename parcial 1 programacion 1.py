@@ -9,9 +9,9 @@ opcion = 0
 
 
 while True:
-    print("Menu principal")
+    print("***Menu principal***")
     print("1. Carga Herramientas")
-    print("2. Cantidad de Existencias")
+    print("2. Carga de Existencias")
     print("3. Visualización de Inventario")
     print("4. Consulta Stock")
     print("5. Reporte Agotados")
@@ -19,10 +19,10 @@ while True:
     print("7. Actialización de Stock")
     print("8. Salir")
     #Ingresar número del menu
-    opcion_str = input("Elija del menu: ").strip()
+    opcion_str = input("Elija del menu: \n").strip()
     #comprobar si son numeros
     if not opcion_str.isdigit():
-        print("Error: ingrese un número válido.")
+        print("Error: ingrese un número válido.\n")
         continue
 
     opcion = int(opcion_str)
@@ -32,13 +32,15 @@ while True:
         continue #Vuelve a mostrar el menu
 
     if opcion == 1:
-        #Cuantas herramientas desea cargar?
-        #Pedir que ingrese productos
-        num_tools_str = input("Cantidad Herramientas: ").strip()
-        #comprobar si son numeros
-        if not num_tools_str.isdigit():
-            print("Ingrese solo números.")
-            continue
+
+        while True:
+                #Cuantas herramientas desea cargar?
+                num_tools_str = input("Cantidad Herramientas que quiere Cargar: ").strip()
+                #comprobar si son numeros
+                if not num_tools_str.isdigit():
+                    print("Ingrese solo números.")
+                    continue
+                break
         num_tools = int(num_tools_str)
     
         #Itera la cantidad de herramientas ingresadas
@@ -66,7 +68,7 @@ while True:
         for h in herramientas:
             while True:
                 #Muestra de que producto ingresar unidades
-                cantidad_str = input(f"Ingrese unidades para {h}: ")
+                cantidad_str = input(f"Ingrese unidades para {h}: \n")
                 #Valida si es número
                 if not cantidad_str.isdigit():
                     print("Error: Ingrese números")
@@ -89,7 +91,7 @@ while True:
         #Ya comprobado, Muestra el stock: productos y unidades
         else:
             for i in range(len(herramientas)):
-                print(f"{existencias[i]} unidades del producto: {herramientas[i]}")
+                print(f"{existencias[i]} unidades del producto: {herramientas[i]}\n")
 
     elif opcion == 4:
         #Avisa si no hay productos cargados
@@ -103,7 +105,7 @@ while True:
             while True:
                     #Variable bandera
                     encontrado = False
-                    search_prod = input("Ingrese la Herramienta: ").strip().capitalize()
+                    search_prod = input("Ingrese la Herramienta: \n").strip().capitalize()
                     #Valida que el producto no sea ""
                     if search_prod == "":
                         print("Nombre vacio")
@@ -115,13 +117,10 @@ while True:
                     #Recorre los indices de Herramientas
                     for i in range(len(herramientas)):
                         if herramientas[i] == search_prod:
-                            #Si encuentra lo agrega 
-                            identificado = herramientas[i]
-                            cantidad = existencias[i]
                             #Cambia el valor 
                             encontrado = True
                             #Muestra el producto y las unidades
-                            print(f"Producto buscado: {identificado}, con {cantidad} unidades")
+                            print(f"Producto buscado: {herramientas[i]}, con {existencias[i]} unidades\n")
                             break 
                     #El valor False confirma que no hay valores
                     if encontrado == False:
@@ -139,38 +138,40 @@ while True:
                 prod_agotado = herramientas[i]
                 #Si hay alguno con 0 cambia la bandera
                 hay_agotado = True
-                print(f"Producto: {prod_agotado} con {agotado} unidades")
+                print(f"Producto: {prod_agotado} con {agotado} unidades\n")
                 #si la bandera no cambia, no hay 0
         if hay_agotado == False:
-            print("No hay productos agotados")
+            print("No hay productos agotados\n")
 
     elif opcion == 6:
+        while True:
 
-        add_producto = input("Ingrese el producto a agregar: ").strip().capitalize()
-        #Valida que tool no sea ""
-        if add_producto == "":
-            print("Nombre vacio")
-            continue
-        #Valida que sea una palabra
-        if not add_producto.isalpha():
-            print("El nombre solo debe contener letras")
-            continue
-        #valida que no se repitan las herramientas
-        if add_producto in herramientas:
-            print("El producto ya existe")
-            continue
+            add_producto = input("Ingrese el producto a agregar: \n").strip().capitalize()
+            #Valida que tool no sea ""
+            if add_producto == "":
+                print("Nombre vacio")
+                continue
+            #Valida que sea una palabra
+            if not add_producto.isalpha():
+                print("El nombre solo debe contener letras")
+                continue
+            #valida que no se repitan las herramientas
+            if add_producto in herramientas:
+                print("El producto ya existe")
+                continue
         
-        #Muestra de que producto ingresar unidades
-        add_unidades_str = input(f"Ingrese unidades para {add_producto}: ")
-        #Valida si es número
-        if not add_unidades_str.isdigit():
-            print("Error: Ingrese números")
-            continue
-        add_unidades = int(add_unidades_str)
-        #Comprueba si es menor o igual a 0
-        if add_unidades < 0:
-            print("Error: Ingrese un número mayor o igual a 0")
-            continue
+            #Muestra de que producto ingresar unidades
+            add_unidades_str = input(f"Ingrese unidades para {add_producto}: \n")
+            #Valida si es número
+            if not add_unidades_str.isdigit():
+                print("Error: Ingrese números")
+                continue
+            add_unidades = int(add_unidades_str)
+            #Comprueba si es menor o igual a 0
+            if add_unidades < 0:
+                print("Error: Ingrese un número mayor o igual a 0")
+                continue
+            break
 
         #Si pasan las validaciones, se agregan a las listas
         herramientas.append(add_producto)
@@ -180,7 +181,7 @@ while True:
     elif opcion == 7:
         while True:
             while True:
-                sell_buy_str = input("Elija 1 para Vender y 2 para Comprar: ")
+                sell_buy_str = input("Elija 1 para Vender y 2 para Comprar: \n")
                 if not sell_buy_str.isdigit():
                     print("Error: Introduce solo 1 o 2")
                     continue
@@ -194,8 +195,10 @@ while True:
 
             if sell_buy == 1:
                 #Variable bandera
-                find_product = False
-                vender_producto = input("Ingrese la Herramienta: ").strip().capitalize()
+                encontrado = False
+
+                ### Vender Producto ###
+                vender_producto = input("Ingrese la Herramienta: \n").strip().capitalize()
                 #Valida que el producto no sea ""
                 if vender_producto == "":
                     print("Nombre vacio")
@@ -204,32 +207,28 @@ while True:
                 if not vender_producto.isalpha():
                     print("El nombre solo debe contener letras")
                     continue
+
                 #Recorre los indices de Herramientas
                 for i in range(len(herramientas)):
-                    if herramientas[i] == vender_producto:
-                        #Si encuentra lo agrega 
-                        #prod_en_herramientas = herramientas[i]
-                        #unid_en_existencias = existencias[i]
-                        #Cambia el valor 
-                        find_product = True
+                    if herramientas[i] == vender_producto: 
+                        encontrado = True
                         #Muestra el producto y las unidades en stock
-                        print(f"Producto buscado: {herramientas[i]}, con {existencias[i]} unidades")
+                        print(f"Producto buscado: {herramientas[i]}, con {existencias[i]} unidades\n")
                         break
-                if find_product == False:
+                if encontrado == False:
                     print("El producto no existe")
                     continue 
 
-                #Muestra de que producto ingresar unidades
-                venta_unid_str = input(f"Ingrese unidades para {herramientas[i]}: ")
+                ### Venta de Unidades ###
+                venta_unid_str = input(f"Ingrese unidades para {herramientas[i]}: \n")
                 #Valida si es número
                 if not venta_unid_str.isdigit():
                     print("Error: Ingrese números")
                     continue
                 venta_unid = int(venta_unid_str)
-                if venta_unid < 0:
-                    print("Error: Ingrese un número mayor o igual a 0")
+                if venta_unid <= 0:
+                    print("Error: Ingrese un número mayor a 0")
                     continue
-                #break
         
                 #Actualiza stock
                 if venta_unid > existencias[i]:
@@ -241,8 +240,11 @@ while True:
                 break
 
             else:
-                find_it = False
-                comprar_producto = input("Herramienta a comprar: ").strip().capitalize()
+                #Bandera
+                encontrado = False
+
+                ### Compra Producto ###
+                comprar_producto = input("Herramienta a comprar: \n").strip().capitalize()
                 #Valida que el producto no sea ""
                 if comprar_producto == "":
                     print("Nombre vacio")
@@ -255,27 +257,32 @@ while True:
                 for i in range(len(herramientas)):
                     if herramientas[i] == comprar_producto:
                         #Cambia el valor 
-                        find_it = True
+                        encontrado = True
                         #Muestra el producto y las unidades en stock
-                        print(f"Producto buscado: {herramientas[i]}, con {existencias[i]} unidades")
+                        print(f"Producto buscado: {herramientas[i]}, con {existencias[i]} unidades\n")
                         break
-                if find_it == False:
+                if encontrado == False:
                     print("El producto no existe")
                     continue
 
-                #Muestra de que producto ingresar unidades
-                compra_unid_str = input(f"Ingrese c/u para {herramientas[i]}: ")
+                ### Comprar Unidades ###
+                compra_unid_str = input(f"Ingrese unidades a comprar {herramientas[i]}: \n")
+
                 #Valida si es número
                 if not compra_unid_str.isdigit():
                     print("Error: Ingrese números")
                     continue
                 compra_unid = int(compra_unid_str)
-                if compra_unid < 0:
-                    print("Error: Ingrese un número mayor o igual a 0")
+                if compra_unid <= 0:
+                    print("Error: Ingrese un número mayor a 0")
                     continue 
 
                 #Actualiza stock
                 new_stock = existencias[i] + compra_unid
                 existencias[i] = new_stock
             break
-                
+
+    else:
+        print("Eligió salir.")
+        print("El programa finalizó correctamente.") 
+        break
