@@ -5,9 +5,8 @@
 herramientas = []
 existencias = []
 opcion = 0
-#1)preguntar al usuario la cantidad de herramientas a cargar
 
-
+#Bucle principal
 while True:
     print("***Menu principal***")
     print("1. Carga Herramientas")
@@ -35,7 +34,7 @@ while True:
 
         while True:
                 #Cuantas herramientas desea cargar?
-                num_tools_str = input("Cantidad Herramientas que quiere Cargar: ").strip()
+                num_tools_str = input("Cantidad Herramientas que quiere Cargar: \n").strip()
                 #comprobar si son numeros
                 if not num_tools_str.isdigit():
                     print("Ingrese solo números.")
@@ -46,7 +45,7 @@ while True:
         #Itera la cantidad de herramientas ingresadas
         for i in range(num_tools):
             while True:
-                tool = input("Ingrese las Herramientas: ").strip().capitalize()
+                tool = input("Ingrese las Herramientas: \n").strip().capitalize()
                 #Valida que tool no sea ""
                 if tool == "":
                     print("Nombre vacio")
@@ -59,7 +58,7 @@ while True:
                 if tool in herramientas:
                     print("Herramienta repetida")
                     continue
-                break #Si todo ok, Sale del while
+                break 
             #Agrega el valor de tool a herramientas
             herramientas.append(tool)
 
@@ -114,7 +113,7 @@ while True:
                     if not search_prod.isalpha():
                         print("Nombre Incorrecto")
                         continue
-                    #Recorre los indices de Herramientas
+                    #Recorre los indices y mantengo sincronizacion de listas
                     for i in range(len(herramientas)):
                         if herramientas[i] == search_prod:
                             #Cambia el valor 
@@ -144,38 +143,31 @@ while True:
             print("No hay productos agotados\n")
 
     elif opcion == 6:
-        while True:
 
-            add_producto = input("Ingrese el producto a agregar: \n").strip().capitalize()
-            #Valida que tool no sea ""
-            if add_producto == "":
-                print("Nombre vacio")
-                continue
-            #Valida que sea una palabra
-            if not add_producto.isalpha():
-                print("El nombre solo debe contener letras")
-                continue
-            #valida que no se repitan las herramientas
-            if add_producto in herramientas:
-                print("El producto ya existe")
-                continue
+        add_producto = input("Ingrese el producto a agregar: \n").strip().capitalize()
+        #Valida que tool no sea ""
+        if add_producto == "":
+            print("Nombre vacio, ha vuelto al menu")
         
-            #Muestra de que producto ingresar unidades
+        #valida que no se repitan las herramientas
+        elif add_producto in herramientas:
+            print("El producto ya existe, ha vuelto al menu")
+        
+        else:
             add_unidades_str = input(f"Ingrese unidades para {add_producto}: \n")
             #Valida si es número
             if not add_unidades_str.isdigit():
-                print("Error: Ingrese números")
-                continue
-            add_unidades = int(add_unidades_str)
-            #Comprueba si es menor o igual a 0
-            if add_unidades < 0:
-                print("Error: Ingrese un número mayor o igual a 0")
-                continue
-            break
+                print("Error: Solo debe ingresar números, ha vualto al menu")
 
-        #Si pasan las validaciones, se agregan a las listas
-        herramientas.append(add_producto)
-        existencias.append(add_unidades)
+            else:
+                add_unidades = int(add_unidades_str)
+                #Comprueba si es menor o igual a 0
+                if add_unidades < 0:
+                    print("Error: Ingrese un números positivos, ha vuelto al menu")
+                else:    
+                    #Si pasan las validaciones, se agregan a las listas
+                    herramientas.append(add_producto)
+                    existencias.append(add_unidades)
 
     #Impedir ventas que superen el stock disponible (no se permiten saldos negativos)
     elif opcion == 7:
