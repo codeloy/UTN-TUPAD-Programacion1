@@ -75,3 +75,20 @@ def segundos_a_horas(segundos):
 segundos = int(input("Ingresa la cantidad de segundos a convertir: "))
 #Llama a la función
 print(f"Horas: {segundos_a_horas(segundos):.2f}")
+
+#6. Crear una función llamada tabla_multiplicar(numero) que reciba un número 
+#como parámetro y imprima la tabla de multiplicar de ese número del 1 al 10. 
+# Pedir al usuario el número y llamar a la fun- ción.
+
+#Declarar función
+def tabla_multiplicar(numero):
+    """Crea la tabla de multiplicar, multiplicando 
+    el parametro de entrada(numero) por i y 
+    lo guarda en num"""
+    for i in range(1, 11):
+        num = numero * i
+        print(f"{numero}x{i} = {num}")
+#pide el ingreso del numero(parametro)
+numero = int(input("Tabla de multiplicar de: "))
+#llamada de función
+tabla_multiplicar(numero)
