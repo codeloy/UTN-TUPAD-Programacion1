@@ -15,8 +15,9 @@ while True:
     print("4. Consulta Stock")
     print("5. Reporte Agotados")
     print("6. Alta Nuevo Producto")
-    print("7. Actialización de Stock")
+    print("7. Actualización de Stock")
     print("8. Salir")
+    
     #Ingresar número del menu
     opcion_str = input("Elija del menu: \n").strip()
     #comprobar si son numeros
@@ -30,6 +31,7 @@ while True:
         print("Error: Opción fuera de rango.")
         continue #Vuelve a mostrar el menu
 
+    # Carga Herramientas
     if opcion == 1:
 
         while True:
@@ -62,6 +64,7 @@ while True:
             #Agrega el valor de tool a herramientas
             herramientas.append(tool)
 
+    #Carga de Existencias
     elif opcion == 2:
         existencias.clear()
         for h in herramientas:
@@ -80,6 +83,7 @@ while True:
             #Al pasar la validaciones agrega las unidades a la lista existencia
             existencias.append(cantidad)
 
+    #Visualización de Inventario
     elif opcion == 3:
         #Avisa si no hay productos cargados
         if len(herramientas) == 0:
@@ -92,6 +96,7 @@ while True:
             for i in range(len(herramientas)):
                 print(f"{existencias[i]} unidades del producto: {herramientas[i]}\n")
 
+    # Consulta Stock
     elif opcion == 4:
         #Avisa si no hay productos cargados
         if len(herramientas) == 0:
@@ -127,6 +132,7 @@ while True:
                         continue
                     break
             
+    # Reporte Agotados        
     elif opcion == 5:
         #variable bandera
         hay_agotado = False
@@ -142,6 +148,7 @@ while True:
         if hay_agotado == False:
             print("No hay productos agotados\n")
 
+    # Alta Nuevo Producto
     elif opcion == 6:
 
         add_producto = input("Ingrese el producto a agregar: \n").strip().capitalize()
@@ -169,7 +176,7 @@ while True:
                     herramientas.append(add_producto)
                     existencias.append(add_unidades)
 
-    #Impedir ventas que superen el stock disponible (no se permiten saldos negativos)
+    # Actualización de Stock
     elif opcion == 7:
         while True:
             while True:
@@ -232,7 +239,7 @@ while True:
                 break
 
             else:
-                #Bandera
+                #Bandera para controlar
                 encontrado = False
 
                 ### Compra Producto ###
@@ -274,6 +281,7 @@ while True:
                 existencias[i] = new_stock
             break
 
+    # Opción 8 Salir
     else:
         print("Eligió salir.")
         print("El programa finalizó correctamente.") 
