@@ -59,3 +59,19 @@ def calcular_perimetro(radio):
 #Llamada de las dos funciones 
 print(f"El Area: {calcular_area(radio):.2f}")
 print(f"El Perimetro: {calcular_perimetro(radio):.2f}")
+
+#5. Crear una función llamada segundos_a_horas(segundos) que reciba una 
+#cantidad de segundos como parámetro y devuelva la cantidad de horas 
+#correspondientes. Solicitar al usuario los segundos y mostrar el resultado 
+#usando esta función. 
+
+#definir Función
+def segundos_a_horas(segundos):
+    """Calcula la cantidad de horas
+    dividiendo el parametro(segundos) por 3600"""
+    horas = segundos/3600
+    return horas
+#pide L usuario los segundos
+segundos = int(input("Ingresa la cantidad de segundos a convertir: "))
+#Llama a la función
+print(f"Horas: {segundos_a_horas(segundos):.2f}")
