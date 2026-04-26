@@ -32,3 +32,30 @@ def informacion_personal(nombre, apellido, edad, residencia):
     print(f"Soy {nombre} {apellido}, tengo {edad} años y vivo en {residencia}")
 #Llamada a la función con sus 4 parámetros
 informacion_personal("Eloy", "Arana", 45, "Valencia")
+
+#4. Crear dos funciones: calcular_area_circulo(radio) que reciba el ra- dio 
+#como parámetro y devuelva el área del círculo. calcular_perimetro_circulo(radio) 
+# que reciba el radio como parámetro y devuel- va el perímetro del círculo. 
+# Solicitar el radio al usuario y llamar ambas funciones para mostrar los resultados. 
+
+# Declarar variable Pi
+PI = 3.1416
+# Pide al usuario ingresar el radio
+radio = int(input("Ingresa el radio: "))
+# Definir la función
+def calcular_area(radio):
+    """ Calcula del area de un circulo dado un radio
+    Argumento: radio(float)
+    return: el resultado del cálculo(float)"""
+    area = PI * radio**2
+    return area
+#Definir función
+def calcular_perimetro(radio):
+    """ Cálculo del Perímetro de un circulo dado un radio
+    Argumento: radio(float)
+    return: el resultado del cálculo(float)"""
+    perimetro = 2 * PI * radio
+    return perimetro
+#Llamada de las dos funciones 
+print(f"El Area: {calcular_area(radio):.2f}")
+print(f"El Perimetro: {calcular_perimetro(radio):.2f}")
