@@ -92,3 +92,27 @@ def tabla_multiplicar(numero):
 numero = int(input("Tabla de multiplicar de: "))
 #llamada de función
 tabla_multiplicar(numero)
+
+#7. Crear una función llamada operaciones_basicas(a, b) que reciba dos 
+#números como parámetros y devuelva una tupla con el resultado de sumarlos, 
+# restarlos, multiplicarlos y dividirlos. Mostrar los resultados de forma clara.
+
+#declarar función
+def operaciones_basicas(a, b):
+    """Cada operación se guarda en una variable
+     Cada variable se guarda en la Tupla con el resultado """ 
+    suma = a + b
+    resta = a - b
+    multi = a * b
+    div = a / b
+    return (suma, resta, multi, div)
+#Ingresar los datos
+num1 = int(input("Ingresa el primer número: "))
+num2 = int(input("Ingresa el segundo número: "))
+#Desempaquetado de Tupla, asigna cada elemento de la tupla a una variable(en orden)
+s, r, m, d = operaciones_basicas(num1, num2)
+
+print(f"El Resultado de la suma es: {s} ")
+print(f"El Resultado de la resta es: {r} ")
+print(f"El Resultado de la multiplicación es: {m} ")
+print(f"El Resultado de la división es: {d:.2f}")
