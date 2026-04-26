@@ -116,3 +116,21 @@ print(f"El Resultado de la suma es: {s} ")
 print(f"El Resultado de la resta es: {r} ")
 print(f"El Resultado de la multiplicación es: {m} ")
 print(f"El Resultado de la división es: {d:.2f}")
+
+#8. Crear una función llamada calcular_imc(peso, altura) que reciba el peso en 
+#kilogramos y la altura en metros, y devuelva el índice de masa corporal 
+#(IMC). Solicitar al usuario los datos y llamar a la función para mostrar el 
+#resultado con dos decimales. 
+#funcion con 2 parametros
+def calcular_imc(peso, altura):
+    """Calcúla el IMC dividiendo el peso 
+     por la altura. Imprime el resultado """
+    imc = peso / altura
+    print(f"Su IMC(Indice de masa corporal) es: {imc:.2f}")
+
+#Ingreso de datos
+peso = float(input("Ingrese su Peso: "))
+altura = float(input("Ingrese su Altura: "))
+
+#Llamada de la función
+calcular_imc(peso, altura)
