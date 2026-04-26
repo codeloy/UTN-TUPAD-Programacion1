@@ -134,3 +134,20 @@ altura = float(input("Ingrese su Altura: "))
 
 #Llamada de la función
 calcular_imc(peso, altura)
+
+#9. Crear una función llamada celsius_a_fahrenheit(celsius) que reciba una 
+#temperatura en grados Celsius y devuelva su equivalente en Fahrenheit. 
+#Pedir al usuario la temperatura en Celsius y mostrar el resultado usando la 
+#función. 
+
+#definir la función
+def celsius_a_fahrenheit(celsius):
+    """Formula F = (C x 1.8)+ 32 """
+    ft = (celsius * 1.8) + 32
+    print(f"La conversión de {celsius} C a Fahrenheit es: {ft} F")
+
+#Ingreso de datos
+c = float(input("Ingrese los grados: "))
+#Llamada de la función
+celsius_a_fahrenheit(c)
+
