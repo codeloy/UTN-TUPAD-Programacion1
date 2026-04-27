@@ -93,8 +93,8 @@ def operaciones_basicas(a, b):
         div = a / b
     return (suma, resta, multi, div)
 #Ingresar los datos
-num1 = int(input("Ingresa el primer número: "))
-num2 = int(input("Ingresa el segundo número: "))
+num1 = int(input("Ingresa el primer número para las operaciones: "))
+num2 = int(input("Ingresa el segundo número para las operaciones: "))
 #Desempaquetado de Tupla, asigna cada elemento de la tupla a una variable(en orden)
 s, r, m, d = operaciones_basicas(num1, num2)
 
@@ -113,7 +113,7 @@ def calcular_imc(peso, altura):
 
 #Ingreso de datos
 peso = float(input("Ingrese su Peso: "))
-altura = float(input("Ingrese su Altura: "))
+altura = float(input("Ingrese su Altura (ej. 1.70): "))
 
 #Llamada de la función
 imc = calcular_imc(peso, altura)
@@ -142,7 +142,7 @@ def calcular_promedio(a, b, c):
     y los divide por la cantidad(3)"""
     return (a + b + c) / 3
     
-dato1 = int(input("Ingrese un número: "))
+dato1 = int(input("Ingrese el primer número para el promedio: "))
 dato2 = int(input("Ingrese el segundo número: "))
 dato3 = int(input("Ingrese el tercer número: "))
 
