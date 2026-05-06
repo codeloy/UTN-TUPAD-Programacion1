@@ -1,8 +1,7 @@
 ### TRABAJO PRACTICO N 6 FUNCIONES ###
 
 #1. Crear una función llamada imprimir_hola_mundo que imprima por pantalla 
-#el mensaje: “Hola Mundo!”. Llamar a esta función desde el programa 
-#principal. 
+#el mensaje: “Hola Mundo!”. 
 
 #Devuelve el prin del String
 def imprimir_hola_mundo():
@@ -58,7 +57,7 @@ def segundos_a_horas(segundos):
     dividiendo el parametro(segundos) por 3600"""
     horas = segundos/3600
     return horas
-#pide L usuario los segundos
+#usuario ingresa los segundos
 segundos = int(input("Ingresa la cantidad de segundos a convertir: "))
 #Llama a la función
 print(f"Horas: {segundos_a_horas(segundos):.2f}")
@@ -92,12 +91,12 @@ def operaciones_basicas(a, b):
     else:
         div = a / b
     return (suma, resta, multi, div)
-#Ingresar los datos
+#Ingresar los datos usuarios
 num1 = int(input("Ingresa el primer número para las operaciones: "))
 num2 = int(input("Ingresa el segundo número para las operaciones: "))
 #Desempaquetado de Tupla, asigna cada elemento de la tupla a una variable(en orden)
 s, r, m, d = operaciones_basicas(num1, num2)
-
+#Muestra de resultados
 print(f"El Resultado de la suma es: {s} ")
 print(f"El Resultado de la resta es: {r} ")
 print(f"El Resultado de la multiplicación es: {m} ")
@@ -111,7 +110,7 @@ def calcular_imc(peso, altura):
      por la altura al cuadrado. Imprime el resultado """
     return peso / (altura**2) 
 
-#Ingreso de datos
+#Ingreso de datos del usuario
 peso = float(input("Ingrese su Peso: "))
 altura = float(input("Ingrese su Altura (ej. 1.70): "))
 
@@ -133,15 +132,13 @@ c = float(input("Ingrese los grados: "))
 #Llamada de la función
 print(celsius_a_fahrenheit(c))
 
-#0. Crear una función llamada calcular_promedio(a, b, c) que reciba tres 
-#números como parámetros y devuelva el promedio de ellos. Solicitar los 
-#números al usuario y mostrar el resultado usando esta función. 
+#10. Crear una función llamada calcular_promedio(a, b, c)
 
 def calcular_promedio(a, b, c):
     """ Toma los 3 parametros, los suma
     y los divide por la cantidad(3)"""
     return (a + b + c) / 3
-    
+#Ingreso de Datos del usuario    
 dato1 = int(input("Ingrese el primer número para el promedio: "))
 dato2 = int(input("Ingrese el segundo número: "))
 dato3 = int(input("Ingrese el tercer número: "))
