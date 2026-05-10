@@ -9,6 +9,27 @@
 precios_frutas = {'Banana': 1200, 'Ananá': 2500, 'Melón': 3000, 'Uva': 1450} 
 #update actualiza el diccionario con los elementos nuevos
 precios_frutas.update({"Naranja" : 1200, "Manzana" : 1500, "Pera" : 2300})
-print(precios_frutas)
+print("------Ejercicio 1------")
+print(f"{precios_frutas}\n")
 
+#2) Siguiendo con el diccionario precios_frutas que resulta luego de ejecutar el código 
+#desarrollado en el punto anterior, actualizar los precios de las siguientes frutas:  
+#● Banana = 1330  
+#● Manzana = 1700  
+#● Melón = 2800
+#Llama a la clave del dicc y modifica el valor
+precios_frutas['Banana'] = 1330
+precios_frutas['Manzana'] = 1700
+precios_frutas['Melón'] = 2800
+print("------Ejercicio 2------")
+print(f"{precios_frutas}\n")
 
+#3) Siguiendo con el diccionario precios_frutas que resulta luego de ejecutar el código 
+#desarrollado en el punto anterior, crear una lista que contenga únicamente las frutas sin los 
+#precios.
+#Extrae las claves del dicc con keys()
+lista_frutas = precios_frutas.keys()
+lista_frutas = list(lista_frutas)
+print("------Ejercicio 3------")  
+print(f"{lista_frutas}\n")
+  
