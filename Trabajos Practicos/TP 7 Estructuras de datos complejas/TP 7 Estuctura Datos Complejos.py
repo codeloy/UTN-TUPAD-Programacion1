@@ -33,3 +33,21 @@ lista_frutas = list(lista_frutas)
 print("------Ejercicio 3------")  
 print(f"{lista_frutas}\n")
   
+#4) Escribí un programa que permita almacenar y consultar números telefónicos.  
+#• Permití al usuario cargar 5 contactos con su nombre como clave y número como valor.  
+#• Luego, pedí un nombre y mostrale el número asociado, si existe.
+agenda = {}
+for i in range(5):
+    nombre = input("nombre: ")
+    numero = input("Número de telefono: ")
+    agenda[nombre] = numero
+print(agenda)
+for a in agenda:
+    busqueda = input("Ingrese el nombre que busca: ")
+    if busqueda in agenda:
+        resultado = agenda.get(busqueda)
+        print(f"El número de {busqueda} es: {resultado}")
+        break
+    else:
+        print("Nombre no encontrado")
+        break
