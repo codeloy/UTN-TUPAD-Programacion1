@@ -119,3 +119,20 @@ for empleado, cantidad in contador.items():
     print(f"El empleado/a: {empleado} asistio:{cantidad} veces")
 print("")
 
+#8) Armá un diccionario donde las claves sean nombres de productos y los 
+# valores su stock. Permití al usuario: 
+# • Consultar el stock de un producto ingresado.  
+# • Agregar unidades al stock si el producto ya existe.  
+# • Agregar un nuevo producto si no existe.   
+
+productos = {"leche" : 3, "harina" : 2, "fideos" : 7, "lentejas" : 1, "aceite" : 5}
+print(f"La lista de productos es: {productos}")
+consulta = input("Ingresa el producto: ").lower()
+if consulta in productos:
+    print(f"Con {productos.get(consulta)} unidades")
+    add_unidades = int(input("Unidades a agregar: "))
+    productos[consulta] += add_unidades
+else:
+    add_unidades = int(input(f"Unidades para {consulta}: "))
+    productos[consulta] = add_unidades
+print(f"Productos totales {productos}")
