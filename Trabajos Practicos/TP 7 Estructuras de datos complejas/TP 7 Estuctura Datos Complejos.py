@@ -55,7 +55,7 @@ for a in agenda:
 #5) Solicita al usuario una frase e imprime:  
 #• Las palabras únicas (usando un set).  
 #• Un diccionario con la cantidad de veces que aparece cada palabra. 
-frase = input("Ingresa una frase: ")
+"""frase = input("Ingresa una frase: ")
 frase_cortada = frase.split(" ")
 unicas = set(frase_cortada)
 recuento = {}
@@ -66,5 +66,56 @@ for palabra  in frase_cortada:
         recuento[palabra] = 1
 
 print(f"Palabras Unicas: {unicas}")        
-print(f"Recuendo: {recuento}")
+print(f"Recuendo: {recuento}")"""
+
+#6) Permití ingresar los nombres de 3 alumnos, 
+# y para cada uno una tupla de 3 notas. Luego, 
+#mostrá el promedio de cada alumno.  
+
+"""alumnos = {}
+for i in range(3):
+   nombre = input(f"nombre alumno{i+1}: ")
+   nota1 = int(input("Primera nota: "))
+   nota2 = int(input("Segunda nota: "))
+   nota3 = int(input("Tercera nota: "))
+   alumnos[nombre] = (nota1, nota2, nota3)
+
+
+def promedio(notas_tupla):
+    suma = sum(notas_tupla)
+    return suma / 3
+
+for nombre, notas in alumnos.items():
+    promedio_final = promedio(notas)
+    print(f"el promedio de {nombre} es: {promedio_final:.2f}")"""
+
+
+#7) Se recibe el registro diario de asistencia a una capacitación en forma de lista. 
+#En dicha lista pueden aparecer nombres repetidos, 
+# ya que una misma persona pudo haber asistido en más de una jornada. 
+#• Mostrá la lista original de asistencias.  
+#• Generá un conjunto (set) a partir de la lista y 
+# mostrar los empleados que asistieron al menos una vez (sin repetir nombres). 
+#• Indicá cuántas veces asistió cada empleado a la capacitación. 
+
+contador = {}
+asistencias = ["Ana", "Luis", "Ana", "Maria", "Luis", "Pedro", "Ana"]
+asistencia_unicas = set(asistencias)
+print("------Ejercicio 7------")
+#Recorre el set con for e imprime los valores
+print(f"Los empleados fueron: ")
+for nombre in asistencia_unicas:
+    print(f"->{nombre}")
+#Recorre el dicc y si encuentra repetido
+#  suma 1 al valor de la clave
+for nombre in asistencias:
+    if nombre in contador:
+        contador[nombre] += 1
+    else:
+        contador[nombre] = 1
+#Con .items puedo iterar sobre la clave(empleado)
+#y el valor(cantidad) del diccionario
+for empleado, cantidad in contador.items():
+    print(f"El empleado/a: {empleado} asistio:{cantidad} veces")
+print("")
 
