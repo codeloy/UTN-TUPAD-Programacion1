@@ -146,7 +146,7 @@ print(f"Productos totales {productos}")"""
 # }
 #Permití consultar qué actividad hay en cierto día y hora. 
 
-agenda = {}
+"""agenda = {}
 cant_ingresos = int(input("número de ingresos a la agenda: "))
 
 for i in range(cant_ingresos):
@@ -160,5 +160,26 @@ consulta_h = input("Hora a consultar: ")
 if (consulta_d, consulta_h) in agenda:
     print(f"Actividad: {agenda[consulta_d, consulta_h]}")
 else:
-    print("No hay nada programado")
+    print("No hay nada programado")"""
 
+#10) Dado un diccionario que mapea nombres de países con sus capitales,
+#  construí un nuevo diccionario donde:  
+# • Las capitales sean las claves.  
+# • Los países sean los valores.  
+
+#Diccionario sin modificar
+original = {
+    "Argentina" : "Buenos Aires",
+    "Chile" : "Santiago",
+    "Uruguay" : "Montevideo"
+    }
+# Diccionario vacio para rellenar
+invertido = {}
+# Recorre el dicc obtiene la clave y 
+# el valor, los invierte y los guarda
+# en el dicc vacio
+for clave, valor in original.items():
+    invertido[valor] = clave
+# Muestra los dos diccionarios
+print(f"Diccionario Original: {original}")
+print(f"Diccionario Invertido: {invertido}")
