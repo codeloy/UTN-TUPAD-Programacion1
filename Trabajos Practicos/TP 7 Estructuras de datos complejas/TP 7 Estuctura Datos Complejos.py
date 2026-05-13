@@ -125,7 +125,7 @@ print("")
 # • Agregar unidades al stock si el producto ya existe.  
 # • Agregar un nuevo producto si no existe.   
 
-productos = {"leche" : 3, "harina" : 2, "fideos" : 7, "lentejas" : 1, "aceite" : 5}
+"""productos = {"leche" : 3, "harina" : 2, "fideos" : 7, "lentejas" : 1, "aceite" : 5}
 print(f"La lista de productos es: {productos}")
 consulta = input("Ingresa el producto: ").lower()
 if consulta in productos:
@@ -135,4 +135,30 @@ if consulta in productos:
 else:
     add_unidades = int(input(f"Unidades para {consulta}: "))
     productos[consulta] = add_unidades
-print(f"Productos totales {productos}")
+print(f"Productos totales {productos}")"""
+
+#9) Creá una agenda donde las claves sean tuplas de (día, hora)
+#  y los valores sean eventos. 
+#Ejemplo:  
+# agenda = {
+#           ("lunes", "10:00"): "Reunion",
+#           ("martes", "15:00"): "Clases de ingles"
+# }
+#Permití consultar qué actividad hay en cierto día y hora. 
+
+agenda = {}
+cant_ingresos = int(input("número de ingresos a la agenda: "))
+
+for i in range(cant_ingresos):
+    dia = input("Ingresa día de la semana: ").lower()
+    hora = input("Hora (HH:MM): ")
+    evento = input("Ingrese el motivo: ")
+    agenda[(dia), (hora)] = evento
+print(agenda)
+consulta_d = input("Dia a consultar: ").lower()
+consulta_h = input("Hora a consultar: ")
+if (consulta_d, consulta_h) in agenda:
+    print(f"Actividad: {agenda[consulta_d, consulta_h]}")
+else:
+    print("No hay nada programado")
+
